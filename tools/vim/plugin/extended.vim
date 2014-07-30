@@ -8,7 +8,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set font according to system
+ Set font according to system
 if has("mac") || has("macunix")
     set gfn=Source\ Code\ Pro:h15,Menlo:h15
 elseif has("win32") || has("win64")
@@ -18,9 +18,9 @@ elseif has("win32") || has("win64")
 elseif has("linux")
     set gfn=Source\ Code\ pro:h16,Bitstream\ Vera\ Sans\ Mono:h15
 elseif has("unix")
-    "set gfn=Monospace\ 14
-    set gfn=Bitstream\ Vera\ Sans\ Mono\ 14
-    set gfw=WenQuanYi\ Micro\ Hei\ Mono\ 14
+    "set gfn=Monospace\ 13
+    set gfn=Bitstream\ Vera\ Sans\ Mono\ 13
+    set gfw=WenQuanYi\ Micro\ Hei\ Mono\ 13
 endif
 
 " Open MacVim in fullscreen mode
@@ -30,10 +30,10 @@ if has("gui_macvim")
 endif
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
+"set guioptions-=r
+"set guioptions-=R
+"set guioptions-=l
+"set guioptions-=L
 
 " Colorscheme
 if has("gui_running")

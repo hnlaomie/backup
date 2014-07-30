@@ -59,6 +59,15 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark 
 map <leader>nf :NERDTreeFind<cr>
 
+""""""""""""""""""""""""""""""
+" => undotree plugin
+""""""""""""""""""""""""""""""
+Bundle 'mbbill/undotree'
+nnoremap <F5> :UndotreeToggle<cr>
+if has("persistent_undo")
+    set undodir='~/.vim/.undodir/'
+    set undofile
+endif
 
 """"""""""""""""""""""""""""""
 " => jedi-vim plugin
@@ -102,7 +111,7 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 """"""""""""""""""""""""""""""
 " => vim-json
 """"""""""""""""""""""""""""""
-Bundle 'leshill/vim-json'
+" Bundle 'leshill/vim-json'
 
 """"""""""""""""""""""""""""""
 " => vim-snippets plugin
@@ -121,19 +130,19 @@ snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 """"""""""""""""""""""""""""""
 " => vim-fugitive plugin
 """"""""""""""""""""""""""""""
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 
 
 """"""""""""""""""""""""""""""
 " => vim-colors-solarized plugin
 """"""""""""""""""""""""""""""
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
 
 
 """"""""""""""""""""""""""""""
 " => ctrlp.vim plugin
 """"""""""""""""""""""""""""""
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim'
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 "let g:ctrlp_working_path_mode = 0
 "let g:ctrlp_map = '<c-f>'
@@ -145,18 +154,18 @@ Bundle 'kien/ctrlp.vim'
 """"""""""""""""""""""""""""""
 " => vim-multiple-cursors plugin
 """"""""""""""""""""""""""""""
-Bundle 'terryma/vim-multiple-cursors'
-let g:multi_cursor_next_key="\<C-s>"
+" Bundle 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_next_key="\<C-s>"
 
 
 """"""""""""""""""""""""""""""
 " => powerline plugin
 """"""""""""""""""""""""""""""
-Bundle 'Lokaltog/powerline'
-set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim/
-set laststatus=2
-set t_Co=256
-let g:Powerline_symbols = "fancy"
+"Bundle 'Lokaltog/powerline'
+"set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim/
+"set laststatus=2
+"set t_Co=256
+"let g:Powerline_symbols = "fancy"
 
 
 """"""""""""""""""""""""""""""
@@ -179,7 +188,7 @@ Bundle 'derekwyatt/vim-scala'
 """"""""""""""""""""""""""""""
 " => vim-go plugin
 """"""""""""""""""""""""""""""
-"Bundle 'fatih/vim-go'
+Bundle 'fatih/vim-go'
 
 
 """"""""""""""""""""""""""""""
@@ -206,7 +215,7 @@ nnoremap <leader>tt :TlistToggle<cr>
 """"""""""""""""""""""""""""""
 " => dbext plugin
 """"""""""""""""""""""""""""""
-Bundle 'dbext.vim'
+"Bundle 'dbext.vim'
 " let g:dbext_default_profile_SQLITE_generic = 'type=SQLITE:SQLITE_bin=e:\tools\sqlite3.4\sqlite3.exe:dbname=f:\temp\uss-es.db3'
 " let g:dbext_default_profile_ORA_generic = 'type=ORA:user=lwtest:passwd=lwtest@lwdb_192.168.255.122:dbname=lwdb:host=192.168.255.122:port=1521'
 

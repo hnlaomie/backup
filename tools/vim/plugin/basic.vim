@@ -194,11 +194,11 @@ set tw=500
 
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
+"set wrap "Wrap lines
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
+"set tw=79   " width of document (used by gd)
 "highlight ColorColumn ctermbg=133
 set colorcolumn=120
 
