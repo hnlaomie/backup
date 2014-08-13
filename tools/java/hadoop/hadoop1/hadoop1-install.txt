@@ -1,0 +1,119 @@
+laomie user
+$ sudo addgroup hadoop
+$ sudo adduser --ingroup hadoop hduser
+$ sudo adduser hduser sudo
+$ su - hduser
+
+hduser user
+$ ssh-keygen -t rsa -P ""
+$ cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+$ sudo vi /etc/sysctl.conf
+  net.ipv6.conf.all.disable_ipv6 = 1
+  net.ipv6.conf.default.disable_ipv6 = 1
+  net.ipv6.conf.lo.disable_ipv6 = 1
+
+$ sudo sysctl -p
+$ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+
+extract hadoop-1.2.1.tar.gz
+
+$ vi ~/.bashrc
+  export HADOOP_PREFIX=/home/hduser/tools/hadoop1.2
+  export PATH=$PATH:$HADOOP_PREFIX/bin
+
+$ source ~/.bashrc
+
+$ vi $HADOOP_PREFIX/conf/hadoop-env.sh
+  export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+
+$ mkdir -p $HADOOP_PREFIX/tmp 
+$ chmod 755 $HADOOP_PREFIX/tmp
+
+$ mkdir -p $HADOOP_PREFIX/data/hdfs/namenode
+$ mkdir -p $HADOOP_PREFIX/data/hdfs/datanode
+
+$ vi $HADOOP_PREFIX/conf/core-site.xml
+  <configuration>
+      <property>
+          <name>hadoop.tmp.dir</name>
+          <value>/home/hduser/tools/hadoop1.2/tmp</value>
+      </property>
+      <property>
+          <name>fs.default.name</name>
+          <value>hdfs://localhost:54310</value>
+      </property>
+  </configuration>
+
+$ vi $HADOOP_PREFIX/conf/mapred-site.xml
+  <configuration>
+      <property>
+          <name>mapred.job.tracker</name>
+          <value>localhost:54311</value>
+      </property>
+  </configuration>
+  
+$ vi $HADOOP_PREFIX/conf/hdfs-site.xml
+  <configuration>
+      <property>
+          <name>dfs.replication</name>
+          <value>1</value>
+      </property>
+      <property>
+          <name>dfs.namenode.name.dir</name>
+          <value>file:/home/hduser1/tools/hadoop1.2/data/hdfs/namenode</value>
+      </property>
+      <property>
+          <name>dfs.datanode.data.dir</name>
+          <value>file:/home/hduser1/tools/hadoop1.2/data/hdfs/datanode</value>
+      </property>
+  </configuration>
+
+$ cd $HADOOP_PREFIX/bin
+$ hadoop namenode -format
+
+$ start-all.sh
+$ jps
+  (4647 DataNode, 4885 SecondaryNameNode, 5329 Jps, 4965 JobTracker, 4372 NameNode, 5219 TaskTracker)
+
+$ mkdir -p $HADOOP_PREFIX/temp/test
+$ cd $HADOOP_PREFIX/temp/test
+$ wget http://www.gutenberg.org/cache/epub/20417/pg20417.txt
+$ wget http://www.gutenberg.org/cache/epub/5000/pg5000.txt
+$ wget http://www.gutenberg.org/cache/epub/4300/pg4300.txt
+$ cd ..
+$ hadoop fs -copyFromLocal test /user/hduser/gutenberg
+$ hadoop fs -ls
+$ cd $HADOOP_PREFIX
+$ hadoop jar hadoop-examples-1.2.1.jar wordcount /user/hduser/gutenberg /usr/hduser/gutenberg-output
+$ hadoop fs -cat /usr/hduser/gutenberg-output/part-r-00000 | head
+
+$ mkdir -p $HADOOP_PREFIX/temp/output
+$ cd $HADOOP_PREFIX/temp/output
+$ hadoop fs -getmerge /user/hduser/guterberg-output $HADOOP_PREFIX/temp/output
+
+
+sudo add-apt-repository ppa:webupd8team/java
+
+
+5. configuring hive
+# mkdir -p /usr/hive/warehouse
+# chmod a+rwx /usr/hive/warehouse
+
+~/.bashrc
+-------------
+export HIVE_HOME=/home/hduser/tools/hive
+export PATH=$HIVE_HOME/bin:$PATH
+-------------
+
+$ hive --service hiveserver
+$ netstat -anp | grep 10000
+
+hive> create table employs(empid int, name string, surname string)
+> row format delimited
+> fields terminated by ',';
+> load data local inpath '/mnt/employs.csv' overwrite into table employs;
+
+ 
+
+  
+  

@@ -91,6 +91,20 @@ export JAVA_HOME='/home/hduser/tools/jdk7'
         <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
         <value>org.apache.hadoop.mapred.ShuffleHandler</value>
     </property>
+    <property>
+        <!-- "laomie-pc" is master node hostname -->
+        <name>yarn.resourcemanager.resource-tracker.address</name>
+        <value>laomie-pc:8025</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.scheduler.address</name>
+        <value>laomie-pc:8030</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.address</name>
+        <value>laomie-pc:8040</value>
+    </property>
+
 </configuration>
 ```
 
@@ -100,6 +114,10 @@ export JAVA_HOME='/home/hduser/tools/jdk7'
     <property>
         <name>fs.default.name</name>
         <value>hdfs://localhost:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/home/hduser/tools/hadoop/tmp</value>
     </property>
 </configuration>
 ```
@@ -119,6 +137,7 @@ export JAVA_HOME='/home/hduser/tools/jdk7'
 <configuration>
     <property>
         <name>dfs.replication</name>
+        <!-- the number of nodes -->
         <value>1</value>
     </property>
     <property>
@@ -128,6 +147,10 @@ export JAVA_HOME='/home/hduser/tools/jdk7'
     <property>
         <name>dfs.datanode.data.dir</name>
         <value>file:/home/hduser/tools/hadoop/yarn_data/hdfs/datanode</value>
+    </property>
+    <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
     </property>
 </configuration>
 ```
@@ -146,3 +169,30 @@ start-yarn.sh
 stop-yarn.sh
 stop-dfs.sh
 ```
+
+多节点hadoop设置
+----------------------
+在"/etc/hosts"设置主从节点机
+```
+192.168.1.12  laomie-pc
+192.168.1.11  slave01
+```
+
+主节点机"laomie-pc"ssh登录从节点机"slave01"的设置（注：所有从节点机都需设置）
+```bash
+ssh-copy-id -i /home/hduser/.ssh/id_rsa.pub hduser@slave01
+```
+
+在主节点机的hadoop配置"$HADOOP_CONF_DIR/slaves"中添加从节点机
+```
+slave01
+```
+
+
+links
+
+http://www.cnblogs.com/lanxuezaipiao/p/3525554.html
+
+http://solaimurugan.blogspot.com/2013/11/setup-multi-node-hadoop-20-cluster.html
+
+
