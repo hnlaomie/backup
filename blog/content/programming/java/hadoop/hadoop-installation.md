@@ -170,6 +170,16 @@ stop-yarn.sh
 stop-dfs.sh
 ```
 
+hadoop服务
+-------------------
+1. namenode (50070)
+
+2. cluster and applications  (8088)
+
+3. secondary namenode  (50090)
+
+4. datanode (50075)
+
 多节点hadoop设置
 ----------------------
 在"/etc/hosts"设置主从节点机
@@ -188,6 +198,25 @@ ssh-copy-id -i /home/hduser/.ssh/id_rsa.pub hduser@slave01
 slave01
 ```
 
+hadoop的代码编译
+--------------------
+安装下列依赖软件
+```bash
+sudo pacman -S cmake apache-ant base-devel protobuf maven
+ln -s /etc/profile.d/jre.sh /etc/profile.d/jdk.sh
+sudo yaourt -S findbugs
+```
+
+修改~/.bashrc
+```bash
+export FINDBUGS_HOME=/opt/findbugs
+export PATH=$PATH:$FINDBUGS_HOME/bin
+```
+
+编译hadoop
+```bash
+mvn package -Pdist,native,docs,src -DskipTests -Dtar
+```
 
 links
 
