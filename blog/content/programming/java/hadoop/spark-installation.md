@@ -6,25 +6,25 @@ Author: laomie
 Summary: 安装
 
 maven编译
----------------------
+=====================
 ```bash
 export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
 mvn -Pyarn -Phive -Pscala-211 -Dhadoop.version=2.5.0 -Dyarn.version=2.5.0 -DskipTests clean package
 ```
 
 sbt编译
----------------------
+===================
 ```bash
-SPARK_HADOOP_VERSION=2.5.0 SPARK_YARN=true SPARK_HIVE=true sbt/sbt assembly
+SPARK_HADOOP_VERSION=2.5.0 SPARK_YARN=true SPARK_HIVE=true sbt/sbt clean assembly
 ```
 
 生成spark部署包
 ```bash
-./make-distribution.sh --hadoop 2.5.0 --with-yarn --with-hive --tgz
+./make-distribution.sh --tgz -Pyarn -Phive -Dhadoop.version=2.5.0 -Dyarn.version=2.5.0 -DskipTests
 ```
 
 intellij调试spark代码
--------------------------------
+==============================
 安装jdk8，scala2.10，sbt0.13并在"~/.bashrc"设置相关环境变量
 ```bash
 export SCALA_HOME=/home/laomie/tools/scala-2.10
@@ -57,8 +57,16 @@ flume-sink代码生成
 vm设置
   -Dspark.master=spark://inspiron1520:7077
 
+spark on yarn
+=========================
+```bash
+SPARK_JAR=./assembly/target/scala-2.10/spark-assembly-1.2.0-SNAPSHOT-hadoop2.5.0.jar HADOOP_CONF_DIR=/home/hduser/tools/hadoop2.5-single ./bin/spark-submit --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi --num-executors 3 --driver-memory 2g --executor-memory 1g --executor-cores 1 examples/target/scala-2.10/spark-examples-1.2.0-SNAPSHOT-hadoop2.5.0.jar
+
+SPARK_JAR=./assembly/target/scala-2.10/spark-assembly-1.2.0-SNAPSHOT-hadoop2.5.0.jar HADOOP_CONF_DIR=/home/hduser/tools/hadoop2.5-single/etc/hadoop MASTER=yarn-client ./bin/spark-shell
+```
+
 问题一览
------------------------
+==========================
 单机运行spark-shell出现ERROR Remoting: Remoting error:，在"conf/spark-env.sh"增加以下环境变量
 ```bash
 export SPARK_MASTER_IP=localhost
@@ -66,6 +74,7 @@ export SPARK_LOCAL_IP=localhost
 ```
 
 参考
-----------------------------
+===========================
 http://mmicky.blog.163.com/blog/static/1502901542014312101657612/
 http://www.cnblogs.com/hseagle/p/3732492.html
+http://parambirs.wordpress.com/2014/05/20/running-spark-1-0-0-snapshot-on-hadoopyarn-2-4-0/
