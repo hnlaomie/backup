@@ -18,11 +18,22 @@
 
 <configuration>
 <property>
-<name>fs.default.name</name>
-<value>hdfs://localhost:9000</value>
+    <name>fs.default.name</name>
+    <value>hdfs://localhost:9000</value>
 </property>
 <property>
-<name>hadoop.tmp.dir</name>
-<value>/home/hduser/tools/hadoop2.5-single/tmp</value>
+    <name>hadoop.tmp.dir</name>
+    <value>/home/hduser/tools/hadoop2.5-single/tmp</value>
 </property>
+<!--
+<property>
+   <name>fs.file.impl</name>
+   <value>org.apache.hadoop.fs.LocalFileSystem</value>
+   <description>The FileSystem for file: uris.</description>
+</property>
+<property>
+   <name>fs.hdfs.impl</name>
+   <value>org.apache.hadoop.hdfs.DistributedFileSystem</value>
+</property>
+-->
 </configuration>
