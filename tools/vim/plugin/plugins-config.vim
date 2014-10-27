@@ -186,6 +186,11 @@ Bundle 'fholgado/minibufexpl.vim'
 Bundle 'derekwyatt/vim-scala'
 
 """"""""""""""""""""""""""""""
+" => vim-javascript plugin
+""""""""""""""""""""""""""""""
+Bundle 'pangloss/vim-javascript'
+
+""""""""""""""""""""""""""""""
 " => vim-go plugin
 """"""""""""""""""""""""""""""
 Bundle 'fatih/vim-go'
