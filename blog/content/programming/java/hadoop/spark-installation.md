@@ -55,7 +55,18 @@ flume-sink代码生成
   mvn generate-sources
 
 vm设置
+  -Dspark.master=local[4]
   -Dspark.master=spark://inspiron1520:7077
+
+环境变量
+  MASTER=local[4]
+  MASTER=spark://inspiron1520:7077
+
+spark on local
+======================
+```bash
+run-example SparkPi 10
+```
 
 spark on yarn
 =========================

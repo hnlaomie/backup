@@ -17,15 +17,22 @@ python-dateutil, markupsafe, markdown
 
 安装
 ----------
-
-    $ pip install -e git+https://github.com/getpelican/pelican.git#egg=pelican
+```bash
+$ pip install -e git+https://github.com/getpelican/pelican.git#egg=pelican
+```
 
 使用
 ----------
+```bash
+$ pelican-quickstart
 
-    $ pelican-quickstart
-    $ fab build
-    $ fab serve
+$ fab build
+$ fab serve
+
+$ pelican content
+$ cd output
+$ sudo python -m http.server 80
+```
 
 配置
 ----------
@@ -37,11 +44,11 @@ github使用
 
 常用命令
 ------------
-
-    $ git clone https://github.com/hnlaomie/backup
-    $ cd backup
-    $ git add .
-    $ git commit -m 'first commit'
-    $ git push origin master
-
+```bash
+$ git clone https://github.com/hnlaomie/backup
+$ cd backup
+$ git add .
+$ git commit -m 'first commit'
+$ git push origin master
+```
 http://blogs.skicelab.com/maurizio/unicode-common-pitfalls.html
