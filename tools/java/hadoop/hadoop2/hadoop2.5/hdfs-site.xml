@@ -17,20 +17,20 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<property>
-    <name>dfs.replication</name>
-    <value>1</value>
-</property>
-<property>
-    <name>dfs.permissions</name>
-    <value>false</value>
-</property>
-<property>
-    <name>dfs.namenode.name.dir</name>
-    <value>file:/home/hduser/tools/hadoop2.5-single/yarn_data/hdfs/namenode</value>
-</property>
-<property>
-    <name>dfs.datanode.data.dir</name>
-    <value>file:/home/hduser/tools/hadoop2.5-single/yarn_data/hdfs/datanode</value>
-</property>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:/usr/local/tools/hadoop-single/yarn_data/hdfs/namenode</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:/usr/local/tools/hadoop-single/yarn_data/hdfs/datanode</value>
+    </property>
 </configuration>
