@@ -17,14 +17,18 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<property>
-    <name>fs.default.name</name>
-    <value>hdfs://192.168.18.22:9000</value>
-</property>
-<property>
-    <name>hadoop.tmp.dir</name>
-    <value>/usr/local/tools/hadoop-single/tmp</value>
-</property>
+    <property>
+        <name>fs.default.name</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/tools/hadoop-single/tmp</value>
+    </property>
+    <property>
+        <name>hadoop.native.lib</name>
+        <value>true</value>
+    </property>
 <!--
 <property>
    <name>fs.file.impl</name>

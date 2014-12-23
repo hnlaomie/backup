@@ -23,7 +23,7 @@
 </property>
 <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:mysql://localhost:3306/hadoop2?createDatabaseIfNotExist=true</value>
+    <value>jdbc:mysql://localhost:3306/hivetest?createDatabaseIfNotExist=true</value>
 </property>
 <property>
     <name>javax.jdo.option.ConnectionDriverName</name>
@@ -39,7 +39,7 @@
 </property>
 <property>
     <name>hive.metastore.warehouse.dir</name>
-    <value>file:/home/hduser/tools/hive0.13/warehouse</value>
+    <value>file:/usr/local/tools/hive/warehouse</value>
 </property>
 <property>
     <name>hive.server2.thrift.port</name>
@@ -55,7 +55,7 @@
 </property>
 <property>
     <name>hive.exec.scratchdir</name>
-    <value>/home/hduser/tools/hive0.13/tmp</value>
+    <value>/usr/local/tools/hive/tmp</value>
 </property>
 
 <!--
