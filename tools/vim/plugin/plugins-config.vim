@@ -2,13 +2,13 @@
 " => vundle plugin
 "
 " mkdir -p ~/.vim/bundle
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
@@ -17,16 +17,16 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 if has('win32') || has('win64')
-    set rtp+=$HOME/vimfiles/bundle/vundle/
-    call vundle#rc('$HOME/vimfiles/bundle/')
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+    call vundle#rc('$VIM/vimfiles/bundle/')
 else
     " Usual quickstart instructions
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim/
+    call vundle#begin()
 endif
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
 "
@@ -47,7 +47,7 @@ Bundle 'gmarik/vundle'
 """"""""""""""""""""""""""""""
 " => Nerdtree plugin
 """"""""""""""""""""""""""""""
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 "download from vim.org
 let g:NERDTreeDirArrows=0
 let NERDTreeWinSize=35
@@ -62,7 +62,7 @@ map <leader>nf :NERDTreeFind<cr>
 """"""""""""""""""""""""""""""
 " => undotree plugin
 """"""""""""""""""""""""""""""
-Bundle 'mbbill/undotree'
+Plugin 'mbbill/undotree'
 nnoremap <F5> :UndotreeToggle<cr>
 if has("persistent_undo")
     set undodir='~/.vim/.undodir/'
@@ -116,7 +116,7 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 """"""""""""""""""""""""""""""
 " => vim-snippets plugin
 """"""""""""""""""""""""""""""
-Bundle 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
@@ -177,35 +177,35 @@ snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 """"""""""""""""""""""""""""""
 " => minibufexpl.vim plugin
 """"""""""""""""""""""""""""""
-Bundle 'fholgado/minibufexpl.vim'
+Plugin 'fholgado/minibufexpl.vim'
 
 
 """"""""""""""""""""""""""""""
 " => vim-scala plugin
 """"""""""""""""""""""""""""""
-Bundle 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 """"""""""""""""""""""""""""""
 " => vim-javascript plugin
 """"""""""""""""""""""""""""""
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
 """"""""""""""""""""""""""""""
 " => vim-go plugin
 """"""""""""""""""""""""""""""
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 
 """"""""""""""""""""""""""""""
 " => neocomplete plugin
 """"""""""""""""""""""""""""""
-Bundle 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplete.vim'
 
 
 """"""""""""""""""""""""""""""
 " => taglist scripts 
 """"""""""""""""""""""""""""""
-Bundle 'taglist.vim'
+Plugin 'taglist.vim'
 set tags=.\tags,tags
 " taglist setup
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
@@ -228,6 +228,6 @@ nnoremap <leader>tt :TlistToggle<cr>
 """"""""""""""""""""""""""""""
 " => moria plugin
 """"""""""""""""""""""""""""""
-Bundle 'moria'
+Plugin 'moria'
 
 filetype plugin indent on      " required!
