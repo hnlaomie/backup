@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<?xml version="1.0"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,37 +12,35 @@
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
-
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
+    <!-- Site specific YARN configuration properties -->
     <property>                                                                                                          
-        <name>fs.defaultFS</name>                                                                                    
-        <value>hdfs://master:9000</value>                                                                            
+        <name>yarn.nodemanager.aux-services</name>                                                                      
+        <value>mapreduce_shuffle</value>                                                                                
     </property>                                                                                                         
     <property>                                                                                                          
-        <name>hadoop.tmp.dir</name>                                                                                     
-        <value>/data/yarn_data/tmp</value>                                                                    
-    </property>                                                                                                         
-    <property>
-        <name>file.stream-buffer-size</name>
-	<value>4096</value>
+        <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>                                              
+        <value>org.apache.hadoop.mapred.ShuffleHandler</value>                                                          
     </property>
     <property>
-        <name>file.blocksize</name>
-	<value>67108864</value>
+        <name>yarn.resourcemanager.scheduler.class</name>
+        <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
     </property>
     <property>
-    	<name>fs.trash.interval</name>
-    	<value>1440</value>
+        <name>yarn.nodemanager.resource.cpu-vcores</name>
+        <value>4</value>
     </property>
     <property>
-        <name>fs.checkpoint.period</name>
-        <value>7200</value>
-    </property>
-    <property>
-        <name>fs.checkpoint.size</name>
-        <value>67108864</value> 
+        <name>yarn.resourcemanager.address</name>
+        <value>laomie-E431:8032</value>
     </property>
 
+    <property>
+        <name>yarn.resourcemanager.resource-tracker.address</name>
+        <value>laomie-E431:8031</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.scheduler.address</name>
+        <value>laomie-E431:8030</value>
+    </property>
 </configuration>

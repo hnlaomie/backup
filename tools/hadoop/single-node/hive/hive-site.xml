@@ -8,24 +8,24 @@
     <!--
     <property>
         <name>fs.default.name</name>
-        <value>hdfs://master:9000</value>
+        <value>hdfs://laomie-E431:9000</value>
     </property>
     -->
     <property>
         <name>mapred.job.tracker</name>
-        <value>master:8021</value>
+        <value>laomie-E431:8021</value>
     </property>
     <property>  
         <name>javax.jdo.option.ConnectionURL</name>  
-        <value>jdbc:mysql://10.60.211.35/hive?createDatabaseIfNotExist=true</value>  
+        <value>jdbc:mysql://localhost/hadoop2?createDatabaseIfNotExist=true</value>  
     </property>    
     <property>
         <name>hive.metastore.warehouse.dir</name>
-        <value>hdfs://master:9000/hive/warehouse</value>
+        <value>hdfs://laomie-E431:9000/hive/warehouse</value>
     </property>
     <property>
         <name>hive.exec.scratchdir</name>
-        <value>hdfs://master:9000/hive/scratchdir</value>
+        <value>hdfs://laomie-E431:9000/hive/scratchdir</value>
     </property>
     <property>
         <name>hive.querylog.location</name>
@@ -37,11 +37,11 @@
     </property>  
     <property>  
         <name>javax.jdo.option.ConnectionUserName</name>  
-        <value>hive</value>  
+        <value>hadoop</value>  
     </property>  
     <property>  
         <name>javax.jdo.option.ConnectionPassword</name>  
-        <value>hive</value>  
+        <value>hadoop</value>  
     </property> 
     <!--
     <property>

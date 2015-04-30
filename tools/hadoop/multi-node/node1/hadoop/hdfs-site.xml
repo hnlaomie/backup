@@ -23,11 +23,7 @@
     </property>                                                                                                             
     <property>
         <name>dfs.block.size</name>
-        <value>536870912</value>
-    </property>
-    <property>
-        <name>dfs.datanode.max.xcievers</name>
-        <value>12288</value>
+        <value>67108864</value>
     </property>
     <property>                                                                                                              
         <name>dfs.permissions</name>                                                                                        
@@ -47,11 +43,19 @@
     </property>
     <property>
         <name>dfs.namenode.handler.count</name>
-        <value>20</value>
+        <value>10</value>
+    </property>
+    <property>
+        <name>dfs.namenode.checkpoint.dir</name>
+        <value>file:///home/hadoop/dfs/namesecondary,file://node1:/home/hadoop/dfs/namesecondary</value>	
+    </property>
+    <property>
+        <name>dfs.namenode.checkpoint.period</name>
+        <value>7200</value>
     </property>
     <property>
         <name>dfs.stream-buffer-size</name>
-        <value>40960</value>
+        <value>8192</value>
     </property>
     <property> 
         <name>dfs.balance.bandwidthPerSec</name> 

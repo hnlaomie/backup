@@ -19,23 +19,20 @@
 <configuration>
     <property>                                                                                                              
         <name>dfs.replication</name>                                                                                        
-        <value>2</value>                                                                                                    
+        <value>1</value>                                                                                                    
     </property>                                                                                                             
-    <property>
-        <name>dfs.block.size</name>
-        <value>67108864</value>
-    </property>
+
     <property>                                                                                                              
         <name>dfs.permissions</name>                                                                                        
         <value>false</value>                                                                                                
     </property>                                                                                                             
     <property>                                                                                                              
         <name>dfs.namenode.name.dir</name>                                                                                  
-        <value>file:/data/yarn_data/hdfs/namenode</value>                                               
+        <value>file:/usr/local/data/data/hdfs/namenode</value>                                               
     </property>                                                                                                             
     <property>                                                                                                              
         <name>dfs.datanode.data.dir</name>                                                                                  
-        <value>file:/data/yarn_data/hdfs/datanode</value>                                               
+        <value>file:/usr/local/data/data/hdfs/datanode</value>                                               
     </property> 
     <property>     
         <name>dfs.socket.timeout</name>    
@@ -47,18 +44,24 @@
     </property>
     <property>
         <name>dfs.namenode.checkpoint.dir</name>
-        <value>file:///home/hadoop/dfs/namesecondary</value>	
+        <value>file:/usr/local/data/data/hdfs/namesecondary</value>	
     </property>
     <property>
         <name>dfs.namenode.checkpoint.period</name>
         <value>7200</value>
     </property>
-    <property>
-        <name>dfs.stream-buffer-size</name>
-        <value>8192</value>
-    </property>
     <property> 
         <name>dfs.balance.bandwidthPerSec</name> 
         <value>20971520</value> 
     </property>
+    <!--
+    <property>
+        <name>dfs.blocksize</name>
+        <value>33554432</value>
+    </property>
+    <property>
+        <name>dfs.stream-buffer-size</name>
+        <value>8192</value>
+    </property>
+    -->
 </configuration>

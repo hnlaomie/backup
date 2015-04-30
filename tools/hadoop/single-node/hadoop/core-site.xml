@@ -19,12 +19,21 @@
 <configuration>
     <property>                                                                                                          
         <name>fs.defaultFS</name>                                                                                    
-        <value>hdfs://master:9000</value>                                                                            
+        <value>hdfs://laomie-E431:9000</value>                                                                            
     </property>                                                                                                         
     <property>                                                                                                          
         <name>hadoop.tmp.dir</name>                                                                                     
-        <value>/data/yarn_data/tmp</value>                                                                    
+        <value>/usr/local/data/data/hdfs/tmp</value>                                                                    
     </property>                                                                                                         
+    <property>
+        <name>fs.trash.interval</name>
+        <value>1440</value>
+    </property>
+    <property>
+        <name>hadoop.native.lib</name>
+        <value>true</value>
+    </property>
+    <!--
     <property>
         <name>file.stream-buffer-size</name>
         <value>4096</value>
@@ -33,8 +42,5 @@
         <name>file.blocksize</name>
         <value>67108864</value>
     </property>
-    <property>
-        <name>fs.trash.interval</name>
-        <value>1440</value>
-    </property>
+    -->
 </configuration>
