@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,29 +18,41 @@
 
 <configuration>
     <property>                                                                                                          
-        <name>fs.defaultFS</name>                                                                                    
-        <value>hdfs://localhost:9000</value>                                                                            
+        <name>mapreduce.framework.name</name>                                                                           
+        <value>yarn</value>                                                                                             
     </property>                                                                                                         
     <property>                                                                                                          
-        <name>hadoop.tmp.dir</name>                                                                                     
-        <value>/usr/local/data/data/hdfs/tmp</value>                                                                    
-    </property>                                                                                                         
+        <name>mapred.job.tracker</name>                                                                                 
+        <value>localhost:8021</value>                                                                                   
+    </property> 
     <property>
-        <name>fs.trash.interval</name>
-        <value>1440</value>
+        <name>mapreduce.map.output.compress</name>
+        <value>true</value>
     </property>
     <property>
-        <name>hadoop.native.lib</name>
-        <value>true</value>
+        <name>mapreduce.reduce.shuffle.memory.limit.percent</name>
+        <value>0.10</value>
     </property>
     <!--
     <property>
-        <name>file.stream-buffer-size</name>
-        <value>4096</value>
+        <name>mapred.task.java.opts</name>
+        <value>-Xmx2048m</value>
     </property>
     <property>
-        <name>file.blocksize</name>
-        <value>67108864</value>
+        <name>mapred.child.java.opts</name>
+        <value>-Xmx1024m</value>
+    </property>
+    <property>
+        <name>mapreduce.map.memory.mb</name>
+        <value>1024</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.memory.mb</name>
+        <value>1024</value>
+    </property>
+    <property>
+        <name>mapreduce.tasktracker.tasks.reduce.maximum</name>
+        <value>8</value>
     </property>
     -->
 </configuration>

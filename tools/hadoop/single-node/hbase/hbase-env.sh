@@ -25,15 +25,19 @@
 # so try to keep things idempotent unless you want to take an even deeper look
 # into the startup scripts (bin/hbase, etc.)
 
-# The java implementation to use.  Java 1.6 required.
+# The java implementation to use.  Java 1.7+ required.
 # export JAVA_HOME=/usr/java/jdk1.6.0/
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 # Extra Java CLASSPATH elements.  Optional.
 # export HBASE_CLASSPATH=
 
-# The maximum amount of heap to use, in MB. Default is 1000.
-# export HBASE_HEAPSIZE=1000
+# The maximum amount of heap to use. Default is left to JVM default.
+# export HBASE_HEAPSIZE=1G
+
+# Uncomment below if you intend to use off heap cache. For example, to allocate 8G of 
+# offheap, set the value to "8G".
+# export HBASE_OFFHEAPSIZE=1G
 
 # Extra Java runtime options.
 # Below are what we set by default.  May only work with SUN JVM.
@@ -67,10 +71,8 @@ export HBASE_OPTS="-XX:+UseConcMarkSweepGC"
 # If FILE-PATH is not replaced, the log file(.gc) would still be generated in the HBASE_LOG_DIR .
 # export CLIENT_GC_OPTS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:<FILE-PATH> -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=1 -XX:GCLogFileSize=512M"
 
-# Uncomment below if you intend to use the EXPERIMENTAL off heap cache.
-# export HBASE_OPTS="$HBASE_OPTS -XX:MaxDirectMemorySize="
-# Set hbase.offheapcache.percentage in hbase-site.xml to a nonzero value.
-
+# See the package documentation for org.apache.hadoop.hbase.io.hfile for other configurations
+# needed setting up off-heap block caching. 
 
 # Uncomment and adjust to enable JMX exporting
 # See jmxremote.password and jmxremote.access in $JRE_HOME/lib/management to configure remote password access.
@@ -123,7 +125,6 @@ export HBASE_OPTS="-XX:+UseConcMarkSweepGC"
 
 # Tell HBase whether it should manage it's own instance of Zookeeper or not.
 # export HBASE_MANAGES_ZK=true
-export HBASE_MANAGES_ZK=true
 
 # The default log rolling policy is RFA, where the log file is rolled as per the size defined for the 
 # RFA appender. Please refer to the log4j.properties file to see more details on this appender.
