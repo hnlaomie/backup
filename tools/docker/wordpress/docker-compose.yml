@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  wordpress:
+    image: wordpress
+    hostname: wordpress 
+    ports:
+      - 8000:80
+    environment:
+      WORDPRESS_DB_PASSWORD: laomie
+    volumes:
+      - /usr/local/data/laomie/docker/wordpress/wp_html:/var/www/html
+
+  mysql:
+    image: mariadb
+    hostname: mariadb 
+    environment:
+      MYSQL_ROOT_PASSWORD: laomie
