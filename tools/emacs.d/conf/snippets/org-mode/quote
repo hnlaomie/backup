@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: 引用(左右都缩进)
+# key: quote
+# --
+#+BEGIN_QUOTE
+    $0
+#+END_QUOTE
