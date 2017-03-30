@@ -2,18 +2,33 @@ version: '3'
 
 services:
 
-  wordpress:
+  blog:
     image: wordpress
-    hostname: wordpress 
+    hostname: wp_blog
+    networks:
+      dev-net:
+        ipv4_address: 172.19.0.8 
+    depends_on:
+      - wp_db
     ports:
       - 8000:80
     environment:
       WORDPRESS_DB_PASSWORD: laomie
+      WORDPRESS_DB_HOST: wp_db
     volumes:
       - /usr/local/data/laomie/docker/wordpress/wp_html:/var/www/html
 
-  mysql:
+  wp_db:
     image: mariadb
-    hostname: mariadb 
+    hostname: wp_db
+    networks:
+      dev-net:
+        ipv4_address: 172.19.0.9
     environment:
       MYSQL_ROOT_PASSWORD: laomie
+    volumes:
+      - /usr/local/data/laomie/docker/wordpress/mysql:/var/lib/mysql
+
+networks:
+  dev-net:
+    external: true

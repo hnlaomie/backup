@@ -18,12 +18,3 @@ if has("gui_macvim")
     set fuoptions=maxvert,maxhorz
     au GUIEnter * set fullscreen
 endif
-
-" Colorscheme
-if has("gui_running")
-    set background=dark
-    colorscheme moria 
-else
-    colorscheme desert
-    let g:colors_name="desert"
-endif
