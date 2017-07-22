@@ -1,5 +1,5 @@
-let g:python_host_prog='/home/laomie/tools/pyenv/versions/3.6.1/bin/python'
-let g:python3_host_prog = '/home/laomie/tools/pyenv/versions/3.6.1/bin/python3'
+let g:python_host_prog='/home/laomie/tools/pyenv/versions/3.6.2/bin/python'
+let g:python3_host_prog = '/home/laomie/tools/pyenv/versions/3.6.2/bin/python3'
 let g:loaded_python_provider = 1
 
 set nocompatible
@@ -45,4 +45,3 @@ source ~/.config/nvim/config/plugins/snippet.vim
 source ~/.config/nvim/config/plugins/theme.vim
 source ~/.config/nvim/config/plugins/lightline.vim
 source ~/.config/nvim/config/plugins/autoformat.vim
-

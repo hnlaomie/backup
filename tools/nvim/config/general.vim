@@ -19,7 +19,7 @@ let g:mapleader = ","
 command W w !sudo tee % > /dev/null
 
 "set to use clipboard of system
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -68,6 +68,9 @@ set foldlevel=99
 
 " Enable syntax highlighting
 syntax enable 
+syntax on
+" Explicitly tell Vim that the terminal supports 256 colors
+set t_Co=256 
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup

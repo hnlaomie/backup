@@ -8,4 +8,3 @@ map <leader>nf :NERDTreeFind<cr>
 
 " tabbar
 nmap tb :TagbarToggle<cr>
-
