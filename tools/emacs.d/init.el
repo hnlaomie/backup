@@ -12,12 +12,14 @@
          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
      package-user-dir (concat user-temp-dir "elpa")
 )
+;; emacs24 require calling `package-initialize' explicitly
 (package-initialize)
 
 (add-to-list 'load-path user-lisp-dir)
 
 (eval-when-compile (require 'init-macro))
 
+(require 'init-elpa)
 (require 'init-editor)
 (require 'init-locale)
 ;;;

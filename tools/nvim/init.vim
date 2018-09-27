@@ -1,14 +1,17 @@
-let g:python_host_prog='/home/laomie/tools/pyenv/versions/3.6.2/bin/python'
-let g:python3_host_prog = '/home/laomie/tools/pyenv/versions/3.6.2/bin/python3'
-let g:loaded_python_provider = 1
-
 set nocompatible
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
 " code complete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 " python
 Plug 'zchee/deoplete-jedi'
 Plug 'Chiel92/vim-autoformat'
@@ -41,6 +44,7 @@ source ~/.config/nvim/config/mappings.vim
 source ~/.config/nvim/config/plugins/nerdtree.vim
 source ~/.config/nvim/config/plugins/tagbar.vim
 source ~/.config/nvim/config/plugins/deoplete.vim
+source ~/.config/nvim/config/plugins/deoplete-jedi.vim
 source ~/.config/nvim/config/plugins/snippet.vim
 source ~/.config/nvim/config/plugins/theme.vim
 source ~/.config/nvim/config/plugins/lightline.vim
