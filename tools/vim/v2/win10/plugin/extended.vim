@@ -13,8 +13,8 @@ if has("mac") || has("macunix")
     set gfn=Source\ Code\ Pro:h15,Menlo:h15
 elseif has("win32") || has("win64")
     "set gfn=Lucida\ Console:h12:cANSI
-    set gfn=Consolas:h11:cANSI
-    set gfw=新宋体:h11:cGB2312
+    set gfn=Consolas:h12:cANSI
+    set gfw=新宋体:h12:cGB2312
 elseif has("linux")
     set gfn=Source\ Code\ pro:h16,Bitstream\ Vera\ Sans\ Mono:h15
 elseif has("unix")
@@ -38,7 +38,7 @@ endif
 " Colorscheme
 if has("gui_running")
     set background=dark
-    colorscheme moria 
+    colorscheme moria
 else
     colorscheme desert
     let g:colors_name="desert"

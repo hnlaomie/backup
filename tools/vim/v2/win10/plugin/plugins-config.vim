@@ -26,7 +26,7 @@ else
 endif
 
 " let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
@@ -228,11 +228,11 @@ nnoremap <leader>tt :TlistToggle<cr>
 """"""""""""""""""""""""""""""
 " => moria plugin
 """"""""""""""""""""""""""""""
+" Plugin 'nanotech/jellybeans.vim'
 Plugin 'moria'
 
-
-Plugin 'posva/vim-vue'
-autocmd FileType vue syntax sync fromstart
+" Plugin 'posva/vim-vue'
+" autocmd FileType vue syntax sync fromstart
 
 
 filetype plugin indent on      " required!

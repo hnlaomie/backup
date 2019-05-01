@@ -200,8 +200,13 @@ set si "Smart indent
 set number  " show line numbers
 "set tw=79   " width of document (used by gd)
 "highlight ColorColumn ctermbg=133
-set colorcolumn=120
+set colorcolumn=99
 
+" copy to clipboard
+set clipboard=unnamed
+
+" fullscreen
+autocmd GUIEnter * simalt ~x
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
