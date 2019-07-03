@@ -5,11 +5,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 " code complete
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 " python
@@ -27,11 +27,15 @@ Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" Plug 'neomake/neomake'
+Plug 'neomake/neomake'
 " Plug 'airblade/vim-gitgutter'
 
 " themes
 Plug 'nanotech/jellybeans.vim'
+
+" java
+" Plug 'sbdchd/neoformat'
+" Plug 'artur-shaik/vim-javacomplete2'
 
 call plug#end()
 
@@ -49,3 +53,5 @@ source ~/.config/nvim/config/plugins/snippet.vim
 source ~/.config/nvim/config/plugins/theme.vim
 source ~/.config/nvim/config/plugins/lightline.vim
 source ~/.config/nvim/config/plugins/autoformat.vim
+" source ~/.config/nvim/config/plugins/neoformat.vim
+" source ~/.config/nvim/config/plugins/javacomplete2.vim
